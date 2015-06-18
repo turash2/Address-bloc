@@ -22,4 +22,13 @@ class AddressBook
         
     end
 
+    def remove_entry(name, phone, email)
+    
+        index = 0
+        @entries.delete_if {|entry| entry.name == name}
+    
+    #@entries.remove_entry(index, Entry.new(name, phone, email))
+    
+    end
+
 end
