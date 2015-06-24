@@ -21,5 +21,13 @@ class AddressBook
         @entries.insert(index, Entry.new(name, phone, email))
         
     end
+    
+    def get_entry(number)
+        
+        if number < @entries.length
+            index = number - 1
+            @entries[index]
+        end
+    end
 
 end

@@ -5,6 +5,7 @@ class Entry
         @name = name
         @phone_number = phone_number
         @email = email
+
     end
     
     def to_s
