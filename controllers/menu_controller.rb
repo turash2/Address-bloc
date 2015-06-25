@@ -103,6 +103,7 @@ class MenuController
         puts "\nn - next entry"
         puts "d - delete entry"
         puts "e - edit this entry"
+        puts "nuke - delete all entries"
         puts "m - return to main menu"
         
         selection = $stdin.gets.chomp
@@ -114,6 +115,8 @@ class MenuController
         when "e"
             edit_entry(entry)
             entry_submenu(entry)
+        when "nuke"
+            delete_all_entry(entry)
         when "m"
             system "clear"
             main_menu
@@ -157,6 +160,16 @@ class MenuController
             puts "#{file_name} is not a valid CSV file, please enter the name of a valid CSV file"
             read_csv
         end
+    end
+    
+    def delete_entry(entry)
+        @address_book.entries.delete(entry)
+        puts "#{entry.name} has been deleted"
+    end
+    
+    def delete_all_entry(entry)
+        @address_book.entries.clear
+        puts "all entries have been deleted"
     end
     
     def edit_entry(entry)
