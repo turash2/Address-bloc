@@ -169,7 +169,7 @@ RSpec.describe AddressBook do
         it "searches AddressBook for an non-existing entry" do
             book.import_from_csv("entries.csv")
             entry = book.iterative_search("Dan")
-            expect(entry).to be_nile
+            expect(entry).to be_nil
         end
     
         it "searches AddressBook for Bill" do
