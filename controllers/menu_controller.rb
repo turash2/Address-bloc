@@ -54,7 +54,7 @@ class MenuController
     
     def view_all_entries
         
-        @address_book.entries.each do |entry|
+        address_book.entries.each do |entry|
         system "clear"
         puts entry.to_s
         
@@ -85,7 +85,7 @@ class MenuController
     def search_entries
         print "Search by name: "
         name = gets.chomp
-        match = @address_book.binary_search(name)
+        match = address_book.binary_search(name)
         system "clear"
         
         if match
@@ -116,7 +116,7 @@ class MenuController
             edit_entry(entry)
             entry_submenu(entry)
         when "nuke"
-            delete_all_entry(entry)
+            delete_all_entry
         when "m"
             system "clear"
             main_menu
@@ -130,7 +130,7 @@ class MenuController
     def view_number_n
         puts "enter an entry number: "
         number = gets.to_i
-        entry = @address_book.get_entry(number)
+        entry = address_book.get_entry(number)
         
         if number = nil
             puts "#{number} is not a valid input"
@@ -163,12 +163,12 @@ class MenuController
     end
     
     def delete_entry(entry)
-        @address_book.entries.delete(entry)
+        address_book.entries.delete(entry)
         puts "#{entry.name} has been deleted"
     end
     
-    def delete_all_entry(entry)
-        @address_book.entries.clear
+    def delete_all_entry
+        address_book.entries.clear
         puts "all entries have been deleted"
     end
     
